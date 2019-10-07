@@ -46,4 +46,36 @@ describe("Bombergame", function() {
 
   });
 
+  it("comprobar que ana entra y sale de la partida", function(){
+
+    juego.agregarUsuario('pepe');
+    juego.agregarUsuario('ana');
+
+    juego.crearPartida('una','pepe');
+
+    juego.unirAPartida("unapepe","ana");
+
+    expect(Object.keys(juego.partidas["unapepe"].jugadores).length).toEqual(2);
+
+    juego.partidas["unapepe"].salir("pepe");
+
+    expect(juego.partidas["unapepe"].jugadores["pepe"]).toBe(undefined);
+    expect(Object.keys(juego.partidas["unapepe"].jugadores).length).toEqual(1);
+
+  });
+
+  it("comprobar que pepe entra y cuando sale se borra la partida", function(){
+
+    juego.agregarUsuario('pepe');
+
+    juego.crearPartida('una','pepe');
+
+    expect(Object.keys(juego.partidas["unapepe"].jugadores).length).toEqual(1);
+
+    juego.salir("unapepe","pepe");
+
+    expect(juego.partidas["unapepe"]).toBe(undefined);
+
+  });
+
 });

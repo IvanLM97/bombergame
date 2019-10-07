@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/IvanLM97/bombergame/issues"
   },
-  "homepage": "https://github.com/IvanLM97/bombergame#readme"
+  "homepage": "https://github.com/IvanLM97/bombergame#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
