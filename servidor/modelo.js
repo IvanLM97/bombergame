@@ -21,8 +21,14 @@ function Juego(){
 		if (!this.usuarios[nombre]){
 			console.log("Nuevo usuario: "+nombre);
 			this.usuarios[nombre]=new Usuario(nombre);
+			callback(this.usuarios[nombre]);
+
 		}
-		callback(this.usuarios[nombre]);
+		else{
+			console.log("El usuario "+nombre+" ya existe");
+
+			callback({nick:""});
+		}
 	}
 	this.obtenerUsuarios=function(callback){
 		callback(this.usuarios);
