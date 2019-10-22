@@ -23,7 +23,7 @@ function ClienteRest(){
 	this.unirAPartida=function(nombrePartida,nick){
 		$.getJSON("/unirAPartida/"+nombrePartida+"/"+nick,function(data){    
     		console.log(data);
-    		//mostrarPartida(data);
+    		mostrarPartida(nombrePartida);
 		});
 	}
 	this.obtenerPartidas=function(){
