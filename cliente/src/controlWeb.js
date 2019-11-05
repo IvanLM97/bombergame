@@ -12,7 +12,7 @@ function comprobarUsuario(){
 
 function mostrarAgregarUsuario(){
 	$('#mCP').remove();
-	$('#mLP').remove();
+	
 	
 	var cadena="<div id='mAU'>";
 	cadena=cadena+"<h3>Usuario</h3>";
@@ -76,7 +76,7 @@ function mostrarCrearPartida(nick){
 
 	$('#logoutBtn').on('click',function(){
 
-        rest.cerrarSesion(nick);
+        rest.cerrarSesion();
      });
 
 }

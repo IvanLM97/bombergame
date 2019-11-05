@@ -32,7 +32,6 @@ function Juego(){
 		
 		console.log("Eliminado usuario: "+nombre);
 		delete this.usuarios[nombre];
-		//callback(this.usuarios[nombre]);
 		callback({nombre:""});
 		
 	}

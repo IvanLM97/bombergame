@@ -13,7 +13,7 @@ function ClienteRest(){
 		});
 	}
 
-	this.cerrarSesion=function(nick){
+	this.cerrarSesion=function(){
 		var usr=JSON.parse($.cookie("usr"));
 		$.getJSON("/cerrarSesion/"+usr.nick,function(data){   
 			$.removeCookie("usr");
