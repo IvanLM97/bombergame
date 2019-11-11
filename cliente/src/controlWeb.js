@@ -46,8 +46,11 @@ function mostrarAviso(msg){
 function mostrarCrearPartida(nick){
 	$('#mLP').remove();
 	$('#mP').remove();
+
+	var usr=JSON.parse($.cookie("usr"));
+
 	var cadena="<div id='mCP'>";
-	cadena=cadena+"<h3>Bienvenido "+nick+"</h3>";
+	cadena=cadena+"<h3>Bienvenido "+usr.nick+"</h3>";
 	cadena=cadena+"<div class='row'><div class='col-sm-8'>";
 	cadena=cadena+"<h3>Crear Partida</h3>";
 	cadena=cadena+'<input id="nombrePartida" type="text" class="form-control" name="nombrePartida" placeholder="Nombre partida">';		
@@ -132,3 +135,18 @@ function mostrarListaJugadores(jugadores){
   	cadena=cadena+"</tbody></table></div>";
   	$('#mP').append(cadena);
 }
+
+function mostrarCanvas(){
+	$('#mLJ').remove();
+
+	game = new Phaser.Game(240, 240, Phaser.CANVAS);
+	game.state.add("BootState", new Bomberman.BootState());
+	game.state.add("LoadingState", new Bomberman.LoadingState());
+	game.state.add("TiledState", new Bomberman.TiledState());
+	game.state.start("BootState", true, false, "assets/levels/level1.json", "TiledState");
+}
+
+function borrarCanvas(){
+	$('canvas').remove();
+}
+

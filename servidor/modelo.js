@@ -93,7 +93,7 @@ function Juego(){
 			this.partidas[idp].jugadorPreparado(nick);
 			jugadores=this.partidas[idp].jugadores;
 		}
-		callback(jugadores);
+		callback(this.partidas[idp]);
 	}
 }
 
@@ -112,6 +112,7 @@ function Partida(nombre,idp){
 		return this.jugadores;
 	}
 	this.salir=function(nick){
+		this.jugadores[nick].estado = "no preparado";
 		delete this.jugadores[nick];
 	}
 	this.jugadorPreparado=function(nick){
